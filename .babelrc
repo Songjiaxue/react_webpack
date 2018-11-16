@@ -1,0 +1,26 @@
+{
+  "plugins": [
+      "transform-decorators-legacy",
+     [
+      "transform-runtime",
+      {
+        "polyfill": false
+      },
+      "react-hot-loader/babel"
+     ],
+     ["import", {
+      "libraryName": "antd",
+      "style": true
+     }]
+   ],
+   "presets": [
+    "react",
+     [
+       "env",
+       {
+         "modules": false
+       }
+     ],
+     "stage-2"
+  ]
+}

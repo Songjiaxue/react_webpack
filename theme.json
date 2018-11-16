@@ -1,0 +1,14 @@
+{
+  "primary-color": "#133959",
+  "link-color": "#133959",
+  "layout-header-background": "#133959",
+  "layout-body-background": "transparent",
+  "layout-header-padding": "0",
+  "text-color":"#fff",
+  "@text-color-secondary": "#ccc",
+  "input-bg": "rgba(0,0,0,0.2)",
+  "input-color": "#fff",
+  "input-border-color": "transparent",
+  "font-size-base": "0.14rem",
+  "breadcrumb-link-color-hover": "#fff"
+}
