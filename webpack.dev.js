@@ -16,7 +16,27 @@ module.exports = merge(common, {
   },
   module:{
     rules:[
-      
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: /src/,
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+        },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        include: path.resolve(__dirname, 'src'),
+        loader: require.resolve('babel-loader'),
+        options: {
+          // This is a feature of `babel-loader` for webpack (not Babel itself).
+          // It enables caching results in ./node_modules/.cache/babel-loader/
+          // directory for faster rebuilds.
+          cacheDirectory: true,
+          plugins: ['react-hot-loader/babel'],
+        },
+      },
       {
         test: /\.css/,
         exclude: /(node_modules)/,
@@ -83,18 +103,7 @@ module.exports = merge(common, {
           } // 更改less变量
         ]
       },
-      {
-        test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
-        loader: require.resolve('babel-loader'),
-        options: {
-          // This is a feature of `babel-loader` for webpack (not Babel itself).
-          // It enables caching results in ./node_modules/.cache/babel-loader/
-          // directory for faster rebuilds.
-          cacheDirectory: true,
-          plugins: ['react-hot-loader/babel'],
-        },
-      }
+      
     ]
   },
   plugins: [
@@ -103,7 +112,6 @@ module.exports = merge(common, {
       template: "src/index.html",
       inject: true
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
 });

@@ -22,9 +22,6 @@ module.exports = merge(common, {
         hash: true,
       },
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
   ],
   module: {
     rules: [

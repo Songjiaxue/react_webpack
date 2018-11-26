@@ -1,3 +1,4 @@
 /config/
 /dist/
 /src/libs/*
+/*.js

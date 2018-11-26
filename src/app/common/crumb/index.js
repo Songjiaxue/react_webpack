@@ -1,17 +1,60 @@
 import React from 'react';
-import { Breadcrumb, } from 'antd';
+import { withRouter, Link } from 'react-router-dom';
+import { Breadcrumb } from 'antd';
+import RouteConfig from '../../../../routes/app';
 import './index.less';
 
+@withRouter
+class Crumb extends React.Component {
+  // 渲染面包屑，逐层取url，然后匹配面包屑数组
+  renderCrumb = () => {
+    const { location: { pathname } } = this.props;
+    const pathSnippets = pathname.split('/').filter(i => i);
+    const keys = this.findKeys(RouteConfig);
+    const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+      const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+      return (
+        <Breadcrumb.Item key={url}>
+          <Link to={url}>
+            {keys[url]}
+          </Link>
+        </Breadcrumb.Item>
+      );
+    });
+    return [(
+      <Breadcrumb.Item key="home">
+        <Link to="/">Home</Link>
+      </Breadcrumb.Item>
+    )].concat(extraBreadcrumbItems);
+  }
 
-export default class extends React.Component {
+  // 设置面包屑对象，key为url，value为面包屑名称
+  findKeys = (arr) => {
+    let obj = {};
+    arr.map(v => {
+      obj = {
+        ...obj,
+        [v.path]: v.breadcrumbName,
+      };
+      if (v.children && v.children.length > 0) {
+        obj = {
+          ...this.findKeys(v.children),
+          ...obj,
+        };
+      }
+    });
+    return obj;
+  }
+
+
   render() {
     return (
       <Breadcrumb className="app-crumb">
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item><a href="">Application Center</a></Breadcrumb.Item>
-        <Breadcrumb.Item><a href="">Application List</a></Breadcrumb.Item>
-        <Breadcrumb.Item>An Application</Breadcrumb.Item>
+        {
+          this.renderCrumb()
+        }
       </Breadcrumb>
     );
   }
 }
+export default Crumb;

@@ -1,18 +1,23 @@
 import React from 'react';
-import { hot, } from 'react-hot-loader';
-import { Switch, Route,Redirect,withRouter, } from 'react-router-dom';
-import Login from '&/app/login';
-import Index from '&/app';
+import { hot } from 'react-hot-loader';
+import {
+  Switch,
+  Route,
+  Redirect,
+  withRouter,
+} from 'react-router-dom';
+import Login from '../src/app/login';
+import Index from '../src/app';
 import './index.less';
 
 @withRouter
 
 class App extends React.Component {
-  render () {
+  render() {
     return (
       <div id="app">
         <Switch>
-          <Route exact path="/" component={Index} />
+          <Route path="/" component={Index} />
           <Route path="/login" component={Login} />
           <Redirect from="/accounts" to="/users" />
           {/* <Route component={NoMatch} /> */}
@@ -21,8 +26,4 @@ class App extends React.Component {
     );
   }
 }
-export default hot(module)(App) // react组件热加载
-
-
-
-
+export default hot(module)(App); // react组件热加载

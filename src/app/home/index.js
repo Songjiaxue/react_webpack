@@ -1,7 +1,9 @@
 import React from 'react';
-import { hot, } from 'react-hot-loader';
+import { hot } from 'react-hot-loader';
 
 class Home extends React.Component {
+  state = {}
+
   render() {
     return (
       <div>Hello Home OOOO!</div>
@@ -9,4 +11,4 @@ class Home extends React.Component {
   }
 }
 
-export default hot(module)(Home) // react组件热加载
+export default hot(module)(Home); // react组件热加载
