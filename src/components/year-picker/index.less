@@ -1,0 +1,35 @@
+.common-year {
+  .ant-calendar {
+    border: none;
+    max-width: 3rem;
+    .ant-calendar-panel {
+      .ant-calendar-input-wrap {
+        display: none;
+      }
+      .ant-calendar-date-panel {
+        >.ant-calendar-header {
+          >div:first-child {
+            visibility: hidden;
+          }
+        }
+        >.ant-calendar-body {
+          visibility: hidden;
+        }
+      }
+      .ant-calendar-footer{
+        display: none;
+      }
+    }
+    .ant-calendar-year-panel-header {
+      border: none;
+    }
+   .ant-calendar-year-panel-decade-select{
+     display: none;
+   }
+  }
+}
+.year-input-wrap{
+  .anticon-calendar{
+    color: #fff;
+  }
+}

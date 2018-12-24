@@ -1,0 +1,59 @@
+@import '../../assets/style/variable.less';
+.plan-wrap{
+  .plan-search{
+    >div{
+      display: inline-block;
+    }
+  }
+  .plan-main{
+    .ant-row{
+      margin-top: 0.2rem;
+      .col-wrap{
+        background-color: @bg-color;
+        border-radius: 4px;
+        margin-bottom: 0.2rem;
+        .col-main{
+          padding: 0.1rem;
+          .title{
+            font-weight: bold;
+          }
+          .content{
+            text-indent: 1em;
+          }
+        }
+        .tool{
+          background-color: @bg-green;
+          padding: 0.1rem;
+          display: flex;
+          &-item{
+            flex: 1;
+          }
+          .time{
+            text-align: right;
+          }
+          .anticon{
+            margin-right: 5px;
+          }
+          .between{
+            margin: 0 5px;
+          }
+        }
+      }
+      .pending{
+        .tool{
+          background-color: @bg-yellow;
+        }
+      }
+      .extension{
+       .tool{
+          background-color: @bg-purple;
+       }
+      }
+      .failure{
+        .tool{
+          background-color: @bg-gray;
+        }
+      }
+    }
+  }
+}

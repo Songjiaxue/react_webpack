@@ -6,7 +6,7 @@ import {
   Redirect,
   withRouter,
 } from 'react-router-dom';
-import Login from '../src/app/login';
+import Home from '../src/app/home';
 import Index from '../src/app';
 import './index.less';
 
@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <div id="app">
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/" component={Index} />
-          <Route path="/login" component={Login} />
           <Redirect from="/accounts" to="/users" />
           {/* <Route component={NoMatch} /> */}
         </Switch>

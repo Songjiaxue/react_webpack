@@ -10,5 +10,10 @@
   "input-color": "#fff",
   "input-border-color": "transparent",
   "font-size-base": "0.14rem",
-  "breadcrumb-link-color-hover": "#fff"
+  "breadcrumb-link-color-hover": "#fff",
+  "@processing-color": "#2F84B1",
+  "@progress-remaining-color": "rgba(0,0,0,0.2)",
+  "@popover-bg": "rgba(0,0,0,0.2)",
+  "@component-background": "rgba(0,0,0,0.2)",
+  "@box-shadow-base": "0px 2px 3px rgba(0, 0, 0, 0.3)"
 }

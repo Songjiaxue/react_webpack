@@ -1,0 +1,50 @@
+@import "../../assets/style/variable.less";
+@import "../../assets/style/common.less";
+.home.main-wrapper {
+  display: flex;
+  margin-top: 0.2rem;
+  >div {
+    flex: 1;
+  }
+  .main-left {
+    max-width: 3.6rem;
+    .header-wrap {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+      .header-top {
+        display: flex;
+        align-items: center;
+        padding: 0.2rem;
+        >div {
+          flex: 1;
+        }
+        .img-wrap {
+          max-width: 1.2rem;
+          margin-right: 0.2rem;
+          .img-wrap(1.2rem)
+        }
+      }
+      .card-wrap {
+        background-color: transparent;
+        margin-top: 0.2rem;
+        .ant-card-head {
+          font-size: @main-font;
+          border: none;
+          color: #fff;
+          padding: 0.1rem 0.2rem;
+          &-title,
+          .ant-card-extra {
+            padding: 0;
+            cursor: pointer;
+          }
+        }
+        .ant-card-body {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .main-right {
+    margin-left: 0.4rem;
+  }
+}

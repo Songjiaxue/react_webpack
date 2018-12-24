@@ -3,19 +3,20 @@ const common = require('./webpack.base.js');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const flexbugs = require("postcss-flexbugs-fixes");
-const autoprefixer = require("autoprefixer");
 const theme = require('./theme.json');
+const { proxy } = require('./config/proxy');
 
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname,"dist"),
+    proxy,
+    contentBase: path.resolve(__dirname, "dist"),
     hot: true,
+    // host: '192.168.1.36',
   },
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
@@ -40,70 +41,35 @@ module.exports = merge(common, {
       {
         test: /\.css/,
         exclude: /(node_modules)/,
-        use: [
-          {
-            loader:"style-loader"
-          },
-          {
-            loader:"css-loader",
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: [
-                flexbugs,
-                autoprefixer({
-                  browsers: ["last 6 versions", "android >= 4.0", "ios >= 5.0", ">1%", "Firefox ESR", "not ie < 9"]
-                })
-              ]
-            }
-          }
-        ]
+        use: ['style-loader','css-loader','postcss-loader'],
       },
       {//antd样式处理
-        test:/\.css$/,
-        exclude:/src/,
-        use:[
-            { loader: "style-loader",},
-            {
-                loader: "css-loader",
-                options:{
-                    importLoaders:1
-                }
+        test: /\.css$/,
+        exclude: /src/,
+        use: [
+          { loader: "style-loader", },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
             }
+          }
         ]
       },
       {
         test: /\.less$/,
         use: [
+          'style-loader','css-loader','postcss-loader',
           {
-            loader:"style-loader"
-          },
-          {
-            loader:"css-loader",
-          },
-          
-          {
-            loader: "postcss-loader",
+            loader: "less-loader",
             options: {
-              plugins: [
-                flexbugs,
-                autoprefixer({
-                  browsers: ["last 6 versions", "android >= 4.0", "ios >= 5.0", ">1%", "Firefox ESR", "not ie < 9"]
-                })
-              ]
-            }
-          },
-          {
-            loader:"less-loader",
-            options:{
               modifyVars: theme,
               javascriptEnabled: true,
             },
           } // 更改less变量
         ]
       },
-      
+
     ]
   },
   plugins: [
