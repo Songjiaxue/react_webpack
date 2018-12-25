@@ -1,0 +1,47 @@
+@import '../../assets/style/variable.less';
+.login-wrap{
+  // width: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  // background-color: #41A6FF;
+  background-color: @bg-color;
+  padding: 20px 40px;
+  border-radius: 50px;
+  box-shadow: 0 0 7px 3px @bg-gray;
+  .login-img-wrap{
+    .img-wrap(120px);
+    border: 3px solid rgba(255,255,255,0.3);
+    margin: 0 auto;
+    margin-bottom: 24px;
+    text-align: center;
+  };
+  // .anticon{
+  //   color: #000;
+  // }
+  .ant-input{
+    padding: 15px;
+    width: 300px;
+  }
+  // .ant-input:focus{
+  //   border: 1px solid @primary-color;
+  // }
+  // input:-webkit-autofill {
+  //   box-shadow: 1px 1px 3px 1000px #fff inset;
+  //   // -webkit-text-fill-color: #fff!important;
+  //   border: transparent!important;
+  //   outline:none;
+  // }
+  .login-btn-wrap{
+    text-align: center;
+    .login-form-button{
+      width: 100%;
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+    }
+  }
+  
+}

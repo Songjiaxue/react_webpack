@@ -18,7 +18,9 @@ module.exports = {
   "globals": {
     "_": true,
     "moment": true,
-  },
+    "Get": true,
+    "Post": true,
+  }, // 全局变量
   "rules": {
     "linebreak-style": [0,"error", "windows"], // Expected linebreaks to be 'LF' but found 'CRLF'.
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }], // JSX not allowed in files with extension '.js'

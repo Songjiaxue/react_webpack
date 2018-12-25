@@ -18,7 +18,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: /src/,
@@ -27,7 +27,7 @@ module.exports = merge(common, {
         },
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
         loader: require.resolve('babel-loader'),
         options: {

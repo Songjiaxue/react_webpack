@@ -8,6 +8,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js'], // 使用的扩展名(import文件时候省略的后缀名)
+    // modules: [path.resolve(__dirname,'node_modules')],
+    alias: {
+      '&': path.resolve('src'),
+      'Request': path.resolve('src/api/index'), // 别名
+    },
   },
   module: {
     rules: [
@@ -18,11 +23,6 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/, // 排除文件
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.jsx?$/,
-        include: [path.resolve(__dirname, 'src')],
         loader: 'babel-loader',
       },
       {
@@ -60,10 +60,12 @@ module.exports = {
   },
   plugins: [
     // 全局变量
-    new webpack.ProvidePlugin({
+    new webpack.ProvidePlugin({ 
       _: 'lodash',
       moment: 'moment',
       // join: ['lodash', 'join'], // 指定需要的lodash中的方法，配合tree shaking将多余的lodash删除
+      Get: ['Request','Get'],
+      Post: ['Request','Post'],
     }),
   ],
 };

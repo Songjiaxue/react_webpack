@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Home from '../src/app/home';
 import Index from '../src/app';
+import Login from '../src/app/login';
 import './index.less';
 
 @withRouter
@@ -18,6 +19,7 @@ class App extends React.Component {
       <div id="app">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
           <Route path="/" component={Index} />
           <Redirect from="/accounts" to="/users" />
           {/* <Route component={NoMatch} /> */}
