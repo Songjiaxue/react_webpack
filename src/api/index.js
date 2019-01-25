@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-fetch';
 import Cookies from 'js-cookie';
 
-export const HOST_API = process.env.NODE_ENV === 'production' ? './' : 'api/';
+// export const HOST_API = process.env.NODE_ENV === 'production' ? './' : 'api/';
+export const HOST_API = 'api/';
 
 function genertor(response) {
   return response
