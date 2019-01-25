@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Icon, Input } from 'antd';
+import { Link, withRouter } from 'react-router-dom';
+import { Layout, Icon } from 'antd';
+import { observer, inject } from 'mobx-react';
+import Cookie from 'js-cookie';
 import RouteConfig from '../../../../routes/app';
 import './index.less';
 
@@ -8,8 +10,19 @@ const logo = require('../../../assets/images/logo.png');
 
 const { Header } = Layout;
 
-export default class extends React.Component {
+@inject('store')
+@observer
+@withRouter
+
+class AppHeader extends React.Component {
   state = {}
+
+  logout = () => {
+    const { history, store } = this.props;
+    Cookie.remove('_u');
+    store.u.updateUserInfo();
+    history.push('/login');
+  }
 
   render() {
     return (
@@ -34,11 +47,20 @@ export default class extends React.Component {
         }
 
         <div className="pull-right">
-          <Input
-            placeholder="search..."
-          />
+          {
+            // <Input
+            //   placeholder="search..."
+            // />
+          }
+          <a
+            onClick={this.logout}
+          >
+            <span className="logout-btn">退出登录</span>
+          </a>
         </div>
       </Header>
     );
   }
 }
+
+export default AppHeader;

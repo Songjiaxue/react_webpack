@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Layout, Icon, Card, Progress, Timeline,
 } from 'antd';
+import { inject, observer } from 'mobx-react';
 import AppHeader from '../common/header';
 import './index.less';
 
@@ -10,10 +11,20 @@ const Default = require('../../assets/images/default.jpg');
 
 const { Content } = Layout;
 
+@inject('store')
+@observer
+
 class Home extends React.Component {
-  state = {}
+  constructor(props) {
+    super(props);
+    console.warn(props);
+    this.state = {
+      userInfo: props.store.u.userInfo.userInfo.name,
+    };
+  }
 
   render() {
+    const { userInfo } = this.state;
     return (
       <Layout>
         <AppHeader />
@@ -27,7 +38,7 @@ class Home extends React.Component {
                       <img src={Img} alt="header-img" />
                     </div>
                     <div>
-                      <p><b>XXX</b></p>
+                      <p><b>{userInfo}</b></p>
                       <p>xxx:xxxxxx</p>
                       <p>xxx:xxxxxx</p>
                       <p>xxx:xxxxxx</p>

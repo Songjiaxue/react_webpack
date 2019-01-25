@@ -2,27 +2,58 @@ const merge = require('webpack-merge');
 const common = require('./webpack.base.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const theme = require('./theme.json');
+
+// 多进程编译
+const HappyPack = require('happypack');
+const os = require('os');
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin(['dist'], {
       root: path.resolve(__dirname),       　　　　　　　　　　//根目录
-    }),
+    }), // 打包之前cleandist文件夹
     new HtmlWebpackPlugin({
-      title: 'webpack-emmmmm',
-      inject: true,
+      title: 'react-test',
+      inject: true, // 向template或者templateContent中注入所有静态资源，true或者body：所有JavaScript资源插入到body元素的底部。
       template: "src/index.html",
       minify: {
-        collapseWhitespace: true,
-        hash: true,
+        collapseWhitespace: true, // 清理html中的空格、换行符。
+        minifyCSS: true, // 压缩html内的样式。
+        minifyJS: true, // 压缩html内的js。
       },
+      chunksSortMode: 'none' //如果使用webpack4将该配置项设置为'none'
+    }), // 渲染html模板
+    new HappyPack({
+      id: 'css',
+      threadPool: happyThreadPool,
+      loaders: [
+        'css-loader',
+        'postcss-loader',
+      ],
     }),
-    new ExtractTextWebpackPlugin({
+    new HappyPack({
+      id: 'less',
+      threadPool: happyThreadPool,
+      loaders: [
+        'css-loader',
+        'postcss-loader',
+        {
+          loader: "less-loader",
+          options: {
+            modifyVars: theme, // antd less变量
+            javascriptEnabled: true,
+          },
+        },
+      ],
+    }),
+    new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css', //放到dist/css/下
-      publicPath: './images',
+      chunkFilename: 'css/[name].[hash].css',
     }),
   ],
   module: {
@@ -30,26 +61,17 @@ module.exports = merge(common, {
       {
         test: /\.css$/, // 转换文件的匹配正则
         exclude: /(node_modules)/,
-        use: ExtractTextWebpackPlugin.extract({
-          fallback: 'style-loader',
-          //如果需要，可以在 sass-loader 之前将 resolve-url-loader 链接进来
-          use: ['css-loader', 'postcss-loader']
-        })
+        use: [
+          MiniCssExtractPlugin.loader, // style-loader与mini-css-extract-plugin冲突，要去掉
+          'happypack/loader?id=css',
+        ],
       },
       {
         test: /\.less$/,
-        use: ExtractTextWebpackPlugin.extract({
-          fallback: 'style-loader',
-          //如果需要，可以在 less-loader 之前将 resolve-url-loader 链接进来
-          use: ['css-loader', 'postcss-loader', {
-            loader: "less-loader",
-            options: {
-              modifyVars: theme,
-              javascriptEnabled: true,
-            },
-          } // 更改less变量
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader, // style-loader与mini-css-extract-plugin冲突，要去掉
+          'happypack/loader?id=less',
+        ],
       },
     ]
   },
