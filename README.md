@@ -20,7 +20,7 @@
     |——.eslintrc.js               // eslint配置文件
     |——.postcssrc.js              // postcss配置文件
     |——package.json   
-    |——.theme.json                // antd主题色配置
+    |——theme.json                 // antd主题色配置
 ##### usage
     1. npm install
     2. npm start // 开发

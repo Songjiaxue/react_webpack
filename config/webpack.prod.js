@@ -3,8 +3,11 @@ const common = require('./webpack.base.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Webpackbar = require('webpackbar');
 const path = require('path');
-const theme = require('./theme.json');
+const theme = require('../theme.json');
 
 // 多进程编译
 const HappyPack = require('happypack');
@@ -15,8 +18,9 @@ module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin(['dist'], {
-      root: path.resolve(__dirname),       　　　　　　　　　　//根目录
-    }), // 打包之前cleandist文件夹
+      root: path.resolve('./'),       　　　　　　　　　　//根目录
+    }), // 打包之前clean dist文件夹
+    new Webpackbar(),
     new HtmlWebpackPlugin({
       title: 'react-test',
       inject: true, // 向template或者templateContent中注入所有静态资源，true或者body：所有JavaScript资源插入到body元素的底部。
@@ -105,9 +109,22 @@ module.exports = merge(common, {
         },
       }
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            unused: true,
+            dead_code: true,
+            warnings: false
+          }
+        },
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   output: {
     filename: 'js/[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('dist'),
   },
 });

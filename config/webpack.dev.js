@@ -3,8 +3,8 @@ const common = require('./webpack.base.js');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const theme = require('./theme.json');
-const { proxy } = require('./config/proxy');
+const theme = require('../theme.json');
+const { proxy } = require('./proxy');
 
 // 多进程编译
 const HappyPack = require('happypack');
