@@ -36,5 +36,7 @@ module.exports = {
     'array-callback-return': 0,
     'no-shadow': 0,
     'consistent-return': 0,
+    'no-tabs': 0,
+    'no-mixed-spaces-and-tabs': 0,
   },
 }

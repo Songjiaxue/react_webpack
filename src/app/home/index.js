@@ -28,7 +28,7 @@ class Home extends React.Component {
     return (
       <Layout>
         <AppHeader />
-        <Layout>
+        <Layout className="app-wrap">
           <Content>
             <div className="home main-wrapper">
               <div className="main-left">

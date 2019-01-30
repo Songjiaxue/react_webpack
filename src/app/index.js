@@ -4,8 +4,10 @@ import {
   Switch,
   Route,
   withRouter,
+  Redirect,
 } from 'react-router-dom';
 import AppHeader from './common/header';
+import AppFooter from './common/footer';
 import AppCrumb from './common/crumb';
 import RouteConfig from '../../routes/app';
 import './index.less';
@@ -31,7 +33,18 @@ class AppIndex extends React.Component {
         />,
       );
     });
-    return routes;
+    return routes.concat(
+      (
+        <Route
+          render={() => {
+            return (
+              <Redirect to="/404" />
+            );
+          }}
+          key="404"
+        />
+      ),
+    );
   }
 
   render() {
@@ -48,6 +61,7 @@ class AppIndex extends React.Component {
             </Switch>
           </Content>
         </Layout>
+        <AppFooter />
       </Layout>
     );
   }
