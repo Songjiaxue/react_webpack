@@ -1,5 +1,13 @@
 {
   "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        // "libraryDirectory": "es",
+        "style": true // `style: true` 会加载 less 文件
+      }
+    ],
     "transform-decorators-legacy",
     [
       "transform-runtime",
@@ -8,13 +16,8 @@
       },
       "react-hot-loader/babel"
     ],
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": true
-      }
-    ]
+    
+    "syntax-dynamic-import"
   ],
   "presets": [
     "react",

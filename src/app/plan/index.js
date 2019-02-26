@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import YearPicker from '../../components/year-picker';
 import './index.less';
 
@@ -36,15 +36,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -59,15 +59,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -82,15 +82,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -105,15 +105,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-checko" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -128,15 +128,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -151,15 +151,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -174,15 +174,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>
@@ -197,15 +197,15 @@ export default class Plan extends React.Component {
                 <div className="tool">
                   <div className="tool-item">
                     <p>
-                      <Icon type="check" />
+                      <i className="iconfont icon-check" />
                       <span>已完成</span>
                     </p>
                   </div>
                   <div className="tool-item time">
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                     <span className="between">-</span>
-                    <Icon type="calendar" />
+                    <i className="iconfont icon-calendar" />
                     <span>09-09</span>
                   </div>
                 </div>

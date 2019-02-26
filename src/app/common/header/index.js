@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Layout, Icon } from 'antd';
+import { Layout } from 'antd';
 import { observer, inject } from 'mobx-react';
 import Cookie from 'js-cookie';
 import RouteConfig from '../../../../routes/app';
@@ -38,7 +38,7 @@ class AppHeader extends React.Component {
                 key={v.path}
               >
                 <Link to={v.path}>
-                  <Icon type="home" />
+                  <i className="iconfont icon-home" />
                   <span>{v.breadcrumbName}</span>
                 </Link>
               </div>

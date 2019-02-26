@@ -4,12 +4,32 @@ import {
   Switch, Route, Redirect, withRouter,
 } from 'react-router-dom';
 import Cookie from 'js-cookie';
-import Home from '../src/app/home';
-import Index from '../src/app';
-import Login from '../src/app/login';
-import NoMatch from '../src/app/no-match';
+import Loadable from 'react-loadable';
 import './index.less';
 import AppFooter from '../src/app/common/footer';
+import load from '../src/util/load';
+
+
+const Home = Loadable({
+  loader: () => import('../src/app/home'),
+  loading: load,
+  delay: 300,
+});
+const Index = Loadable({
+  loader: () => import('../src/app'),
+  loading: load,
+  delay: 300,
+});
+const Login = Loadable({
+  loader: () => import('../src/app/login'),
+  loading: load,
+  delay: 300,
+});
+const NoMatch = Loadable({
+  loader: () => import('../src/app/no-match'),
+  loading: load,
+  delay: 300,
+});
 
 @withRouter
 class App extends React.Component {

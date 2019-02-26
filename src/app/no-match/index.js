@@ -1,7 +1,4 @@
 import React from 'react';
-import {
-  Icon,
-} from 'antd';
 import { withRouter } from 'react-router-dom';
 import './index.less';
 
@@ -23,7 +20,7 @@ class NoMatch extends React.Component {
                   history.goBack();
                 }}
               >
-                <Icon type="arrow-right" />
+                <i className="iconfont icon-arrowright" />
                 返回上一页
               </a>
             </p>

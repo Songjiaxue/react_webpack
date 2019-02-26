@@ -1,6 +1,21 @@
-import Home from '../src/app/home';
-import Collection from '../src/app/collection';
-import Plan from '../src/app/plan';
+import Loadable from 'react-loadable';
+import load from '../src/util/load';
+
+const Home = Loadable({
+  loader: () => import('../src/app/home'),
+  loading: load,
+  delay: 300,
+});
+const Collection = Loadable({
+  loader: () => import('../src/app/collection'),
+  loading: load,
+  delay: 300,
+});
+const Plan = Loadable({
+  loader: () => import('../src/app/plan'),
+  loading: load,
+  delay: 300,
+});
 
 export default [
   {

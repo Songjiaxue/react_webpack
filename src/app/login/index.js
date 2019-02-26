@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Input, Form, Icon, message, Spin,
+  Input, Form, message, Spin,
 } from 'antd';
 import md5 from 'js-md5';
 import { withRouter } from 'react-router-dom';
@@ -69,7 +69,7 @@ class Login extends React.Component {
             })(
               <Input
                 prefix={
-                  <Icon type="user" />
+                  <i className="iconfont icon-user" />
                 }
                 placeholder="Username"
                 autoComplete="off"
@@ -86,7 +86,7 @@ class Login extends React.Component {
               ],
             })(
               <Input
-                prefix={<Icon type="lock" />}
+                prefix={<i className="iconfont icon-lock" />}
                 type="password"
                 placeholder="Password"
                 autoComplete="off"

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Layout, Icon, Card, Progress, Timeline,
+  Layout, Card, Progress, Timeline,
 } from 'antd';
 import { inject, observer } from 'mobx-react';
 import AppHeader from '../common/header';
@@ -47,38 +47,38 @@ class Home extends React.Component {
                   <div className="list-wrap">
                     <div className="list-item">
                       <div className="icon-wrap">
-                        <Icon type="smile" />
+                        <i className="iconfont icon-smile" />
                       </div>
                       <div>ITEM1</div>
                       <div className="icon-wrap next-wrap">
-                        <Icon type="right" />
+                        <i className="iconfont icon-right" />
                       </div>
                     </div>
                     <div className="list-item">
                       <div className="icon-wrap">
-                        <Icon type="smile" />
+                        <i className="iconfont icon-smile" />
                       </div>
                       <div>ITEM2</div>
                       <div className="icon-wrap next-wrap">
-                        <Icon type="right" />
+                        <i className="iconfont icon-right" />
                       </div>
                     </div>
                     <div className="list-item">
                       <div className="icon-wrap">
-                        <Icon type="smile" />
+                        <i className="iconfont icon-smile" />
                       </div>
                       <div>ITEM3</div>
                       <div className="icon-wrap next-wrap">
-                        <Icon type="right" />
+                        <i className="iconfont icon-right" />
                       </div>
                     </div>
                     <div className="list-item">
                       <div className="icon-wrap">
-                        <Icon type="smile" />
+                        <i className="iconfont icon-smile" />
                       </div>
                       <div>ITEM4</div>
                       <div className="icon-wrap next-wrap">
-                        <Icon type="right" />
+                        <i className="iconfont icon-right" />
                       </div>
                     </div>
                   </div>
@@ -138,13 +138,7 @@ class Home extends React.Component {
                   <Timeline.Item
                     dot={(
                       <div className="timeline-icon-wrap">
-                        <Icon
-                          type="alert"
-                          style={{
-                            fontSize: '0.14rem',
-                          }}
-                          color="#fff"
-                        />
+                        <i className="iconfont icon-alert" />
                       </div>
                     )}
                   >
@@ -154,13 +148,7 @@ class Home extends React.Component {
                   <Timeline.Item
                     dot={(
                       <div className="timeline-icon-wrap">
-                        <Icon
-                          type="alert"
-                          style={{
-                            fontSize: '0.14rem',
-                          }}
-                          color="#fff"
-                        />
+                        <i className="iconfont icon-alert" />
                       </div>
                     )}
                   >
@@ -170,13 +158,7 @@ class Home extends React.Component {
                   <Timeline.Item
                     dot={(
                       <div className="timeline-icon-wrap">
-                        <Icon
-                          type="alert"
-                          style={{
-                            fontSize: '0.14rem',
-                          }}
-                          color="#fff"
-                        />
+                        <i className="iconfont icon-alert" />
                       </div>
                     )}
                   >

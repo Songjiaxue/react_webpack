@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Icon, Timeline,
+  Timeline,
 } from 'antd';
 import './index.less';
 
@@ -17,13 +17,7 @@ export default class Collection extends React.Component {
             <Timeline.Item
               dot={(
                 <div className="timeline-icon-wrap">
-                  <Icon
-                    type="alert"
-                    style={{
-                      fontSize: '0.14rem',
-                    }}
-                    color="#fff"
-                  />
+                  <i className="iconfont icon-alert" />
                 </div>
               )}
             >
@@ -33,13 +27,7 @@ export default class Collection extends React.Component {
             <Timeline.Item
               dot={(
                 <div className="timeline-icon-wrap">
-                  <Icon
-                    type="alert"
-                    style={{
-                      fontSize: '0.14rem',
-                    }}
-                    color="#fff"
-                  />
+                  <i className="iconfont icon-alert" />
                 </div>
               )}
             >
@@ -49,13 +37,7 @@ export default class Collection extends React.Component {
             <Timeline.Item
               dot={(
                 <div className="timeline-icon-wrap">
-                  <Icon
-                    type="alert"
-                    style={{
-                      fontSize: '0.14rem',
-                    }}
-                    color="#fff"
-                  />
+                  <i className="iconfont icon-alert" />
                 </div>
               )}
             >
