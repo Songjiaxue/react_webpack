@@ -1,7 +1,7 @@
 ##### 项目介绍
     react + react-router + mobx
     项目预览：144.34.164.215:8888
-    项目后台： 
+    项目后台： react_webpack
 
 ##### 文件结构  
     |——config
